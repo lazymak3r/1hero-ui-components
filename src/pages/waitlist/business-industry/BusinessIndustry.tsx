@@ -6,9 +6,9 @@ import { fadeIn } from '../../../utils/routeAnimations';
 import { useForm } from 'react-hook-form';
 import { AppButton } from '../../../components/AppButton/AppButton';
 import { AppRadioOption } from '../../../components/AppRadioOption/AppRadioOption';
+import { wrapInsideSpan } from '../../../utils/fns';
 import { useWaitListStore } from '../../../store/waitlistStore';
 import { businessIndustry as businessIndustryValues } from '../../../utils/constants';
-import { wrapInsideSpan } from '../../../utils/fns';
 
 interface IFormType {
   businessIndustry: string;

@@ -6,8 +6,8 @@ import { fadeIn } from '../../../utils/routeAnimations';
 import { useForm } from 'react-hook-form';
 import { AppButton } from '../../../components/AppButton/AppButton';
 import { AppTextarea } from '../../../components/AppTextarea/AppTextarea';
-import { useWaitListStore } from '../../../store/waitlistStore';
 import { wrapInsideSpan } from '../../../utils/fns';
+import { useWaitListStore } from '../../../store/waitlistStore';
 
 interface IFormType {
   sop: string;
@@ -22,7 +22,6 @@ export const Sop = () => {
 
   const onSubmit = ({ sop }: IFormType) => {
     updateStore('sop', sop);
-    navigate('/team-size');
   };
 
   return (

@@ -31,28 +31,18 @@
   font-weight: 500;
   text-align: center;
   margin-bottom: 24px;
-  color: var(--systemGrayDark6);
+  color: var(--systemGrayDark3);
   font-family: "Inter", sans-serif;
 
   .questionChar {
     opacity: 0;
     transform: scale(1.5);
     display: inline-block;
-    animation: 0.4s scaleFadeIn;
-    animation-fill-mode: forwards;
-    animation-delay: calc(0.02s * var(--index));
-  }
-}
 
-@keyframes scaleFadeIn {
-  0% {
-    opacity: 0;
-    filter: blur(5px);
-    transform: scale(1.5);
-  }
-  100% {
-    opacity: 1;
-    filter: blur(0);
-    transform: scale(1);
+    :global {
+      animation: 0.4s scaleFadeIn;
+      animation-fill-mode: forwards;
+      animation-delay: calc(0.02s * var(--index));
+    }
   }
 }
