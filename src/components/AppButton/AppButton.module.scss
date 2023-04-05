@@ -1,0 +1,206 @@
+.button {
+  --disable: var(--systemGray6);
+  --disableColor: var(--systemGray4);
+
+  --primary: var(--systemBlue);
+  --primaryColor: var(--systemWhite);
+  --primaryHover: var(--systemBlueDark);
+  --primaryActive: var(--systemBlue);
+
+  --secondary: var(--systemWhite);
+  --secondaryColor: var(--systemBlue);
+  --secondaryHover: var(--systemGray6);
+  --secondaryHoverColor: var(--systemBlue);
+  --secondaryActive: var(--systemWhite);
+
+  --success: var(--systemGreen);
+  --successColor: var(--systemWhite);
+  --successHover: var(--systemGreenDark);
+  --successActive: var(--systemGreen);
+
+  --danger: var(--systemRed);
+  --dangerColor: var(--systemWhite);
+  --dangerHover: var(--systemRedDark);
+  --dangerActive: var(--systemRed);
+
+  cursor: pointer;
+  outline: none;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  border: 2px solid transparent;
+  font-family: "Inter", sans-serif;
+  padding: 14px 22px;
+  border-radius: 12px;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s color ease, 0.2s border-color ease, 0.2s background-color ease;
+
+  > :nth-child(2) {
+    margin-left: 8px;
+  }
+
+  > :nth-child(3) {
+    margin-left: 8px;
+  }
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  &.small {
+    padding: 6px 14px;
+    font-size: 14px;
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+    color: var(--disableColor);
+    border-color: transparent;
+    background-color: var(--disable);
+
+    svg {
+      fill: var(--disableColor);
+    }
+
+    &:hover {
+      color: var(--disableColor);
+      border-color: transparent;
+      background-color: var(--disable);
+
+      svg {
+        fill: var(--disableColor);
+      }
+    }
+
+    &:active {
+      color: var(--disableColor);
+      border-color: transparent;
+      background-color: var(--disable);
+
+      svg {
+        fill: var(--disableColor);
+      }
+    }
+  }
+}
+
+.primary {
+  color: var(--primaryColor);
+  border-color: var(--primary);
+  background-color: var(--primary);
+
+  svg {
+    fill: var(--primaryColor);
+  }
+
+  &:hover {
+    border-color: var(--primaryHover);
+    background-color: var(--primaryHover);
+  }
+
+  &:active {
+    border-color: var(--primaryActive);
+    background-color: var(--primaryActive);
+  }
+
+  &:focus:not(:active) {
+    border-color: var(--primaryActive);
+    background-color: var(--primaryHover);
+  }
+}
+
+.secondary {
+  color: var(--secondaryColor);
+  border-color: var(--secondary);
+  background-color: var(--secondary);
+
+  svg {
+    fill: var(--secondaryColor);
+  }
+
+  &:hover {
+    color: var(--secondaryHoverColor);
+    border-color: var(--secondaryHover);
+    background-color: var(--secondaryHover);
+
+    svg {
+      fill: var(--secondaryHoverColor)
+    }
+  }
+
+  &:active {
+    color: var(--secondaryHoverColor);
+    border-color: var(--secondaryActive);
+    background-color: var(--secondaryActive);
+
+
+    svg {
+      fill: var(--secondaryHoverColor)
+    }
+  }
+
+  &:focus:not(:active) {
+    color: var(--secondaryHoverColor);
+    border-color: var(--secondaryHoverColor);
+    background-color: var(--secondaryHover);
+
+    svg {
+      fill: var(--secondaryHoverColor)
+    }
+  }
+}
+
+.success {
+  color: var(--successColor);
+  border-color: var(--success);
+  background-color: var(--success);
+
+  svg {
+    fill: var(--successColor);
+  }
+
+  &:hover {
+    border-color: var(--successHover);
+    background-color: var(--successHover);
+  }
+
+  &:active {
+    border-color: var(--successActive);
+    background-color: var(--successActive);
+  }
+
+  &:focus:not(:active) {
+    border-color: var(--successActive);
+    background-color: var(--successHover);
+  }
+}
+
+.danger {
+  color: var(--dangerColor);
+  border-color: var(--danger);
+  background-color: var(--danger);
+
+  svg {
+    fill: var(--dangerColor);
+  }
+
+  &:hover {
+    border-color: var(--dangerHover);
+    background-color: var(--dangerHover);
+  }
+
+  &:active {
+    border-color: var(--dangerActive);
+    background-color: var(--dangerActive);
+  }
+
+  &:focus:not(:active) {
+    border-color: var(--dangerActive);
+    background-color: var(--dangerHover);
+  }
+}
+

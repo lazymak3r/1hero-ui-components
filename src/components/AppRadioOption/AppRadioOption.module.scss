@@ -1,0 +1,98 @@
+.inputWrapper {
+  width: 100%;
+  user-select: none;
+
+  .inputContainer {
+    width: 100%;
+    display: flex;
+    cursor: pointer;
+    padding: 12px 16px;
+    border-radius: 12px;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid var(--systemGray1);
+    transition: 0.125s transform ease-in-out;
+
+    .radioWrapper {
+      display: inline-flex;
+      align-content: center;
+      justify-content: center;
+
+      .input {
+        display: none;
+
+        &:checked + .radio {
+          border-color: var(--systemBlueDark);
+
+          &::before {
+            transform: translate(-50%, -50%) scale(1);
+          }
+        }
+      }
+
+      .radio {
+        width: 20px;
+        height: 20px;
+        position: relative;
+        border-radius: 50%;
+        display: inline-block;
+        border: 1px solid var(--systemGrayDark1);
+
+        &::before {
+          content: '';
+          top: 50%;
+          left: 50%;
+          width: 14px;
+          height: 14px;
+          position: absolute;
+          border-radius: 50%;
+          background-color: var(--systemBlue);
+          transform: translate(-50%, -50%) scale(0);
+          transition: 0.125s transform cubic-bezier(.06, .68, .34, 1.15);
+        }
+      }
+    }
+
+    .label {
+      font-size: 16px;
+      font-weight: 500;
+      margin-left: 16px;
+      line-height: 22px;
+      text-overflow: ellipsis;
+      color: var(--systemGrayDark6);
+      background-color: transparent;
+      font-family: "Inter", sans-serif;
+
+    }
+
+    &:active {
+      transform: scale(0.99);
+    }
+
+    &.invalid {
+      border-color: var(--systemRed);
+    }
+
+    &.disabled {
+      cursor: not-allowed;
+      border-color: var(--systemGray6);
+      background-color: var(--systemGray6);
+
+      .radioWrapper {
+        .input {
+          &:checked + .radio {
+            border-color: var(--systemGray4);
+
+            &::before {
+              background-color: var(--systemGray4);
+            }
+          }
+        }
+
+        .radio {
+          border-color: var(--systemGray4);
+        }
+      }
+    }
+  }
+}

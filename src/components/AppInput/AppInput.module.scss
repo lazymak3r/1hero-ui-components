@@ -1,0 +1,231 @@
+.inputWrapper {
+  width: 100%;
+  user-select: none;
+
+  .inputContainer {
+    width: 100%;
+    cursor: text;
+    display: flex;
+    padding: 9px 16px;
+    border-radius: 12px;
+    align-items: center;
+    justify-content: space-between;
+    transition: 0.125s box-shadow ease-in-out;
+
+    .icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 10px;
+
+      svg {
+        width: 24px;
+        height: 24px;
+        fill: var(--systemBlack)
+      }
+    }
+
+    .inputMain {
+      flex-grow: 1;
+      height: 100%;
+      position: relative;
+
+      .input {
+        padding: 0;
+        width: 100%;
+        border: none;
+        outline: none;
+        font-size: 16px;
+        line-height: 22px;
+        font-weight: 500;
+        overflow: hidden;
+        margin-top: 14px;
+        text-overflow: ellipsis;
+        color: var(--systemGrayDark6);
+        background-color: transparent;
+        font-family: "Inter", sans-serif;
+
+        &::placeholder {
+          opacity: 0;
+        }
+
+        &:focus,
+        &:not(:placeholder-shown) {
+          + .floatingPlaceholder {
+            top: 0;
+            font-size: 12px;
+            line-height: 14px;
+            transform: translateY(0px);
+            color: var(--systemGrayDark2);
+          }
+        }
+
+        &:placeholder-shown {
+          ~ .clearIcon {
+            display: none;
+          }
+        }
+      }
+
+      .floatingPlaceholder {
+        width: 100%;
+        top: 50%;
+        left: 0;
+        font-size: 16px;
+        font-weight: 500;
+        position: absolute;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        pointer-events: none;
+        color: var(--systemGrayDark5);
+        transform: translateY(-50%);
+        transition: 0.125s all ease-in-out;
+
+        .asterisk {
+          color: var(--systemRed);
+        }
+      }
+
+      .clearIcon {
+        top: 50%;
+        right: 0;
+        cursor: pointer;
+        position: absolute;
+        transform: translateY(-50%);
+
+        svg {
+          width: 24px;
+          height: 24px;
+          fill: var(--systemGray2);
+          transition: 0.125s fill ease-in-out;
+        }
+
+        &:hover {
+          svg {
+            fill: var(--systemGrayDark2);
+          }
+        }
+      }
+
+      .eyeIcon {
+        top: 50%;
+        right: 0;
+        cursor: pointer;
+        position: absolute;
+        transform: translateY(-50%);
+
+        svg {
+          width: 24px;
+          height: 24px;
+          fill: var(--systemGray2);
+          transition: 0.125s fill ease-in-out;
+        }
+
+        &:hover {
+          svg {
+            fill: var(--systemGrayDark2);
+          }
+        }
+      }
+    }
+
+    &.clearable {
+      .inputMain {
+        .input {
+          padding-right: 32px;
+        }
+
+        .floatingPlaceholder {
+          padding-right: 32px;
+        }
+      }
+    }
+
+    &.focused {
+      &.white {
+        border-color: var(--systemBlueDark);
+        box-shadow: 0 0 0 1px var(--systemBlueDark);
+      }
+    }
+
+    &.invalid {
+      &.white {
+        border-color: var(--systemRed);
+        box-shadow: 0 0 0 1px var(--systemRed);
+      }
+
+      .inputMain {
+        .input {
+          &:focus,
+          &:not(:placeholder-shown) {
+            + .floatingPlaceholder {
+              color: var(--systemRed);
+            }
+          }
+        }
+      }
+    }
+
+    &.disabled {
+      cursor: not-allowed;
+
+      .icon,
+      .clearIcon {
+        pointer-events: none;
+
+        svg {
+          fill: var(--systemGray4)
+        }
+      }
+
+      .inputMain {
+        pointer-events: none;
+
+        .input {
+          color: var(--systemGray4);
+        }
+
+        .floatingPlaceholder {
+          color: var(--systemGray4) !important;
+        }
+      }
+
+      &.white {
+        border-color: var(--systemGray6);
+        background-color: var(--systemGray6);
+        box-shadow: 0 0 0 1px var(--systemGray6);
+      }
+    }
+
+    &.noPlaceholder {
+      .input {
+        margin-top: 7px;
+        margin-bottom: 7px;
+      }
+    }
+  }
+
+  .white {
+    background-color: var(--systemWhite);
+    border: 1px solid var(--systemGrayDark1);
+
+    .input {
+      &:-webkit-autofill,
+      &:-webkit-autofill:hover,
+      &:-webkit-autofill:focus,
+      &:-webkit-autofill:active {
+        -webkit-box-shadow: 0 0 0 56px var(--systemWhite) inset !important;
+      }
+    }
+  }
+
+  .invalidMessage {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--systemRed);
+    margin-top: 4px;
+    margin-left: 16px;
+    font-family: 'Inter', sans-serif;
+  }
+}
