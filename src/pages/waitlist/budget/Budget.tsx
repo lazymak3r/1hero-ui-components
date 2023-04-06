@@ -6,7 +6,6 @@ import { fadeIn } from '../../../utils/routeAnimations';
 import { useForm } from 'react-hook-form';
 import { AppButton } from '../../../components/AppButton/AppButton';
 import { AppRadioOption } from '../../../components/AppRadioOption/AppRadioOption';
-import { wrapInsideSpan } from '../../../utils/fns';
 import { useWaitListStore } from '../../../store/waitlistStore';
 import { budget as budgetValues } from '../constants';
 
@@ -33,31 +32,29 @@ export const Budget = () => {
           <h2
             className={classes.question}
           >
-            {wrapInsideSpan('What is your monthly customer support budget (including salary, contracts, and software)?', {
-              className: classes.questionChar
-            })}
+            What is your monthly customer support budget (including salary, contracts, and software)?
           </h2>
           <div className={classes.container}>
             <div className={classes.form}>
               <div className={classes.controls}>
                 <AppRadioOption
-                  value={'1'}
+                  value={budgetValues['0 - $1K']}
+                  label={budgetValues['0']}
+                  {...register('budget', { required: true })}
+                />
+                <AppRadioOption
+                  value={budgetValues['$1K - $10K']}
                   label={budgetValues['1']}
                   {...register('budget', { required: true })}
                 />
                 <AppRadioOption
-                  value={'2'}
+                  value={budgetValues['$10K - $100K']}
                   label={budgetValues['2']}
                   {...register('budget', { required: true })}
                 />
                 <AppRadioOption
-                  value={'3'}
+                  value={budgetValues['$100K+']}
                   label={budgetValues['3']}
-                  {...register('budget', { required: true })}
-                />
-                <AppRadioOption
-                  value={'4'}
-                  label={budgetValues['4']}
                   {...register('budget', { required: true })}
                 />
                 <AppButton type={'submit'} text={'Next'} disable={!isValid} />

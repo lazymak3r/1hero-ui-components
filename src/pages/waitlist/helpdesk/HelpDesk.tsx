@@ -6,7 +6,6 @@ import { fadeIn } from '../../../utils/routeAnimations';
 import { useForm } from 'react-hook-form';
 import { AppButton } from '../../../components/AppButton/AppButton';
 import { AppRadioOption } from '../../../components/AppRadioOption/AppRadioOption';
-import { wrapInsideSpan } from '../../../utils/fns';
 import { useWaitListStore } from '../../../store/waitlistStore';
 import { helpdesk as helpdeskValues } from '../constants';
 
@@ -33,31 +32,29 @@ export const HelpDesk = () => {
           <h2
             className={classes.question}
           >
-            {wrapInsideSpan('What helpdesk customer support platforms does your CS team use?', {
-              className: classes.questionChar
-            })}
+            What helpdesk customer support platforms does your CS team use?
           </h2>
           <div className={classes.container}>
             <div className={classes.form}>
               <div className={classes.controls}>
                 <AppRadioOption
-                  value={'1'}
+                  value={helpdeskValues['re:amaze']}
+                  label={helpdeskValues['0']}
+                  {...register('helpdesk', { required: true })}
+                />
+                <AppRadioOption
+                  value={helpdeskValues['Zendesk']}
                   label={helpdeskValues['1']}
                   {...register('helpdesk', { required: true })}
                 />
                 <AppRadioOption
-                  value={'2'}
+                  value={helpdeskValues['Gorgias']}
                   label={helpdeskValues['2']}
                   {...register('helpdesk', { required: true })}
                 />
                 <AppRadioOption
-                  value={'3'}
+                  value={helpdeskValues['Other']}
                   label={helpdeskValues['3']}
-                  {...register('helpdesk', { required: true })}
-                />
-                <AppRadioOption
-                  value={'4'}
-                  label={helpdeskValues['4']}
                   {...register('helpdesk', { required: true })}
                 />
                 <AppButton type={'submit'} text={'Next'} disable={!isValid} />

@@ -6,7 +6,6 @@ import { fadeIn } from '../../../utils/routeAnimations';
 import { useForm } from 'react-hook-form';
 import { AppButton } from '../../../components/AppButton/AppButton';
 import { AppRadioOption } from '../../../components/AppRadioOption/AppRadioOption';
-import { wrapInsideSpan } from '../../../utils/fns';
 import { useWaitListStore } from '../../../store/waitlistStore';
 import { teamSize as teamSizeValues } from '../constants';
 
@@ -33,31 +32,29 @@ export const TeamSize = () => {
           <h2
             className={classes.question}
           >
-            {wrapInsideSpan('How many people are in your customer support team?', {
-              className: classes.questionChar
-            })}
+            How many people are in your customer support team?
           </h2>
           <div className={classes.container}>
             <div className={classes.form}>
               <div className={classes.controls}>
                 <AppRadioOption
-                  value={'1'}
+                  value={teamSizeValues['1 - 5']}
+                  label={teamSizeValues['0']}
+                  {...register('teamSize', { required: true })}
+                />
+                <AppRadioOption
+                  value={teamSizeValues['6 - 20']}
                   label={teamSizeValues['1']}
                   {...register('teamSize', { required: true })}
                 />
                 <AppRadioOption
-                  value={'2'}
+                  value={teamSizeValues['21 - 50']}
                   label={teamSizeValues['2']}
                   {...register('teamSize', { required: true })}
                 />
                 <AppRadioOption
-                  value={'3'}
+                  value={teamSizeValues['More than 50']}
                   label={teamSizeValues['3']}
-                  {...register('teamSize', { required: true })}
-                />
-                <AppRadioOption
-                  value={'4'}
-                  label={teamSizeValues['4']}
                   {...register('teamSize', { required: true })}
                 />
                 <AppButton type={'submit'} text={'Next'} disable={!isValid} />

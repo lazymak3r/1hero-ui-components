@@ -6,7 +6,6 @@ import { fadeIn } from '../../../utils/routeAnimations';
 import { useForm } from 'react-hook-form';
 import { AppButton } from '../../../components/AppButton/AppButton';
 import { AppRadioOption } from '../../../components/AppRadioOption/AppRadioOption';
-import { wrapInsideSpan } from '../../../utils/fns';
 import { useWaitListStore } from '../../../store/waitlistStore';
 import { dailyEmailsCount as dailyEmailsCountValues } from '../constants';
 
@@ -37,31 +36,29 @@ export const DailyEmailsCount = () => {
           <h2
             className={classes.question}
           >
-            {wrapInsideSpan('How many emails do you receive daily?', {
-              className: classes.questionChar
-            })}
+            How many emails do you receive daily?
           </h2>
           <div className={classes.container}>
             <div className={classes.form}>
               <div className={classes.controls}>
                 <AppRadioOption
-                  value={'1'}
+                  value={dailyEmailsCountValues['Up to 100']}
+                  label={dailyEmailsCountValues['0']}
+                  {...register('dailyEmailsCount', { required: true })}
+                />
+                <AppRadioOption
+                  value={dailyEmailsCountValues['Up to 1,000']}
                   label={dailyEmailsCountValues['1']}
                   {...register('dailyEmailsCount', { required: true })}
                 />
                 <AppRadioOption
-                  value={'2'}
+                  value={dailyEmailsCountValues['Up to 10,000']}
                   label={dailyEmailsCountValues['2']}
                   {...register('dailyEmailsCount', { required: true })}
                 />
                 <AppRadioOption
-                  value={'3'}
+                  value={dailyEmailsCountValues['More']}
                   label={dailyEmailsCountValues['3']}
-                  {...register('dailyEmailsCount', { required: true })}
-                />
-                <AppRadioOption
-                  value={'4'}
-                  label={dailyEmailsCountValues['4']}
                   {...register('dailyEmailsCount', { required: true })}
                 />
                 <AppButton type={'submit'} text={'Next'} disable={!isValid} />

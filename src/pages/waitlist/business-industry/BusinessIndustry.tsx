@@ -6,7 +6,6 @@ import { fadeIn } from '../../../utils/routeAnimations';
 import { useForm } from 'react-hook-form';
 import { AppButton } from '../../../components/AppButton/AppButton';
 import { AppRadioOption } from '../../../components/AppRadioOption/AppRadioOption';
-import { wrapInsideSpan } from '../../../utils/fns';
 import { useWaitListStore } from '../../../store/waitlistStore';
 import { businessIndustry as businessIndustryValues } from '../constants';
 
@@ -37,31 +36,29 @@ export const BusinessIndustry = () => {
           <h2
             className={classes.question}
           >
-            {wrapInsideSpan('What is your business industry?', {
-              className: classes.questionChar
-            })}
+            What is your business industry?
           </h2>
           <div className={classes.container}>
             <div className={classes.form}>
               <div className={classes.controls}>
                 <AppRadioOption
-                  value={'1'}
+                  value={businessIndustryValues['eCommerce']}
+                  label={businessIndustryValues['0']}
+                  {...register('businessIndustry', { required: true })}
+                />
+                <AppRadioOption
+                  value={businessIndustryValues['SaaS']}
                   label={businessIndustryValues['1']}
                   {...register('businessIndustry', { required: true })}
                 />
                 <AppRadioOption
-                  value={'2'}
+                  value={businessIndustryValues['Agency']}
                   label={businessIndustryValues['2']}
                   {...register('businessIndustry', { required: true })}
                 />
                 <AppRadioOption
-                  value={'3'}
+                  value={businessIndustryValues['Other']}
                   label={businessIndustryValues['3']}
-                  {...register('businessIndustry', { required: true })}
-                />
-                <AppRadioOption
-                  value={'4'}
-                  label={businessIndustryValues['4']}
                   {...register('businessIndustry', { required: true })}
                 />
                 <AppButton type={'submit'} text={'Next'} disable={!isValid} />

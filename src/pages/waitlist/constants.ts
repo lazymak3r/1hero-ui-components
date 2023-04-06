@@ -1,41 +1,41 @@
 export enum teamSize {
-  '1 - 5' = 1,
-  '6 - 20' = 2,
-  '21 - 50' = 3,
-  'More than 50' = 4,
+  '1 - 5',
+  '6 - 20',
+  '21 - 50',
+  'More than 50',
 }
 
 export enum budget {
-  '0 - $1K' = 1,
-  '$1K - $10K' = 2,
-  '$10K - $100K' = 3,
-  '$100K+' = 4,
+  '0 - $1K',
+  '$1K - $10K',
+  '$10K - $100K',
+  '$100K+',
 }
 
 export enum businessIndustry {
-  'eCommerce' = 1,
-  'SaaS' = 2,
-  'Agency' = 3,
-  'Other' = 4,
+  'eCommerce',
+  'SaaS',
+  'Agency',
+  'Other',
 }
 
 export enum dailyEmailsCount {
-  'Up to 100' = 1,
-  'Up to 1,000' = 2,
-  'Up to 10,000' = 3,
-  'More' = 4,
+  'Up to 100',
+  'Up to 1,000',
+  'Up to 10,000',
+  'More',
 }
 
 export enum emailService {
-  'Gmail' = 1,
-  'Outlook' = 2,
-  'Zoho' = 3,
-  'Other' = 4,
+  'Gmail',
+  'Outlook',
+  'Zoho',
+  'Other',
 }
 
 export enum helpdesk {
-  're:amaze' = 1,
-  'Zendesk' = 2,
-  'Gorgias' = 3,
-  'Other' = 4,
+  're:amaze',
+  'Zendesk',
+  'Gorgias',
+  'Other',
 }

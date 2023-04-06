@@ -47,12 +47,12 @@ export const useWaitListStore = create<WaitListStore>((set, getState) => ({
     const response = await axios.post<IAddToWaitListResponse>('/waitlist/add', {
       phoneNumber,
       email,
-      teamSize,
-      budget,
-      businessIndustry,
-      dailyEmailsCount,
-      emailService,
-      helpdesk,
+      teamSize: +teamSize,
+      budget: +budget,
+      businessIndustry: +businessIndustry,
+      dailyEmailsCount: +dailyEmailsCount,
+      emailService: +emailService,
+      helpdesk: +helpdesk,
       sop
     });
     return response.data as IAddToWaitListResponse;

@@ -34,16 +34,9 @@
   color: var(--systemGrayDark3);
   font-family: "Inter", sans-serif;
 
-  .questionChar {
-    opacity: 0;
-    transform: scale(1.5);
-    display: inline-block;
-
-    :global {
-      animation: 0.4s scaleFadeIn;
-      animation-fill-mode: forwards;
-      animation-delay: calc(0.02s * var(--index));
-    }
+  :global {
+    animation: 0.2s scaleFadeIn;
+    animation-fill-mode: forwards;
+    animation-delay: calc(0.005s * var(--index));
   }
 }
-

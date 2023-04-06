@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import classes from './Sop.module.scss';
@@ -6,9 +7,7 @@ import { fadeIn } from '../../../utils/routeAnimations';
 import { useForm } from 'react-hook-form';
 import { AppButton } from '../../../components/AppButton/AppButton';
 import { AppTextarea } from '../../../components/AppTextarea/AppTextarea';
-import { wrapInsideSpan } from '../../../utils/fns';
 import { useWaitListStore } from '../../../store/waitlistStore';
-import { useEffect } from 'react';
 
 interface IFormType {
   sop: string;
@@ -61,9 +60,7 @@ export const Sop = () => {
           <h2
             className={classes.question}
           >
-            {wrapInsideSpan('Include your SOP/FAQ', {
-              className: classes.questionChar
-            })}
+            Include your SOP/FAQ
           </h2>
           <div className={classes.container}>
             <div className={classes.form}>

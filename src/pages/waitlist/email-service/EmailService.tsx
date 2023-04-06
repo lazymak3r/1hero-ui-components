@@ -6,7 +6,6 @@ import { fadeIn } from '../../../utils/routeAnimations';
 import { useForm } from 'react-hook-form';
 import { AppButton } from '../../../components/AppButton/AppButton';
 import { AppRadioOption } from '../../../components/AppRadioOption/AppRadioOption';
-import { wrapInsideSpan } from '../../../utils/fns';
 import { useWaitListStore } from '../../../store/waitlistStore';
 import { emailService as emailServiceValues } from '../constants';
 
@@ -33,31 +32,29 @@ export const EmailService = () => {
           <h2
             className={classes.question}
           >
-            {wrapInsideSpan('What Email Service Provider do you use?', {
-              className: classes.questionChar
-            })}
+            What Email Service Provider do you use?
           </h2>
           <div className={classes.container}>
             <div className={classes.form}>
               <div className={classes.controls}>
                 <AppRadioOption
-                  value={'1'}
+                  value={emailServiceValues['Gmail']}
+                  label={emailServiceValues['0']}
+                  {...register('emailService', { required: true })}
+                />
+                <AppRadioOption
+                  value={emailServiceValues['Outlook']}
                   label={emailServiceValues['1']}
                   {...register('emailService', { required: true })}
                 />
                 <AppRadioOption
-                  value={'2'}
+                  value={emailServiceValues['Zoho']}
                   label={emailServiceValues['2']}
                   {...register('emailService', { required: true })}
                 />
                 <AppRadioOption
-                  value={'3'}
+                  value={emailServiceValues['Other']}
                   label={emailServiceValues['3']}
-                  {...register('emailService', { required: true })}
-                />
-                <AppRadioOption
-                  value={'4'}
-                  label={emailServiceValues['4']}
                   {...register('emailService', { required: true })}
                 />
                 <AppButton type={'submit'} text={'Next'} disable={!isValid} />
