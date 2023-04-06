@@ -16,7 +16,7 @@ interface IFormType {
 
 export const Sop = () => {
   const navigate = useNavigate();
-  const { sop, updateStore } = useWaitListStore();
+  const { sop, updateStore, addToWaitList } = useWaitListStore();
   const {
     watch,
     register,
@@ -38,8 +38,12 @@ export const Sop = () => {
     }
   };
 
-  const onSubmit = ({ sop }: IFormType) => {
+  const onSubmit = async ({ sop }: IFormType) => {
     updateStore('sop', sop);
+    const response = await addToWaitList();
+    if (response?.data?.subscriber) {
+      // Todo Redirect to Success page
+    }
   };
 
   useEffect(() => {
