@@ -8,7 +8,7 @@ import { AppButton } from '../../../components/AppButton/AppButton';
 import { AppRadioOption } from '../../../components/AppRadioOption/AppRadioOption';
 import { wrapInsideSpan } from '../../../utils/fns';
 import { useWaitListStore } from '../../../store/waitlistStore';
-import { businessIndustry as businessIndustryValues } from '../../../utils/constants';
+import { businessIndustry as businessIndustryValues } from '../constants';
 
 interface IFormType {
   businessIndustry: string;

@@ -8,6 +8,7 @@ import { AppButton } from '../../../components/AppButton/AppButton';
 import { AppTextarea } from '../../../components/AppTextarea/AppTextarea';
 import { wrapInsideSpan } from '../../../utils/fns';
 import { useWaitListStore } from '../../../store/waitlistStore';
+import { useEffect } from 'react';
 
 interface IFormType {
   sop: string;
@@ -16,13 +17,38 @@ interface IFormType {
 export const Sop = () => {
   const navigate = useNavigate();
   const { sop, updateStore } = useWaitListStore();
-  const { register, handleSubmit, formState: { isValid } } = useForm<IFormType>({ defaultValues: { sop } });
+  const {
+    watch,
+    register,
+    setValue,
+    handleSubmit,
+    formState: { isValid }
+  } = useForm<IFormType>({ defaultValues: { sop } });
 
   const goBack = () => navigate(-1);
+
+  const windowFocusHandler = async () => {
+    try {
+      const clipBoardText = await navigator.clipboard.readText();
+      if (!watch('sop') && clipBoardText) {
+        const value = confirm('Allow Paste?');
+        value && setValue('sop', clipBoardText);
+      }
+    } catch (e) {
+    }
+  };
 
   const onSubmit = ({ sop }: IFormType) => {
     updateStore('sop', sop);
   };
+
+  useEffect(() => {
+    window.addEventListener('focus', windowFocusHandler);
+
+    return () => {
+      window.removeEventListener('focusin', windowFocusHandler);
+    };
+  }, []);
 
   return (
     <motion.div {...fadeIn}>

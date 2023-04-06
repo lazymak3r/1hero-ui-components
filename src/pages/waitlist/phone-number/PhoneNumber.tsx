@@ -7,6 +7,7 @@ import { useForm } from 'react-hook-form';
 import { AppInput } from '../../../components/AppInput/AppInput';
 import { AppButton } from '../../../components/AppButton/AppButton';
 import { useWaitListStore } from '../../../store/waitlistStore';
+import { PHONE_REGEX, VALIDATION_MESSAGES } from '../../../utils/constants';
 
 interface IFormType {
   phoneNumber?: string;
@@ -15,7 +16,11 @@ interface IFormType {
 export const PhoneNumber = () => {
   const navigate = useNavigate();
   const { phoneNumber, updateStore } = useWaitListStore();
-  const { register, handleSubmit, formState: { isValid } } = useForm<IFormType>({ defaultValues: { phoneNumber } });
+  const {
+    register,
+    handleSubmit,
+    formState: { isValid, errors }
+  } = useForm<IFormType>({ mode: 'onChange', defaultValues: { phoneNumber } });
 
   const onSubmit = ({ phoneNumber }: IFormType) => {
     updateStore('phoneNumber', phoneNumber);
@@ -31,9 +36,13 @@ export const PhoneNumber = () => {
               <div className={classes.controls}>
                 <AppInput
                   autoFocus={true}
+                  invalid={!!errors['phoneNumber']}
+                  invalidMessage={errors['phoneNumber']?.message}
                   placeholder={'Phone Number (Optional)'}
                   className={classes.phoneField}
-                  {...register('phoneNumber')}
+                  {...register('phoneNumber', {
+                    pattern: { value: PHONE_REGEX, message: VALIDATION_MESSAGES.PHONE_FORMAT }
+                  })}
                 />
                 <AppButton type={'submit'} text={'Next'} disable={!isValid} />
               </div>

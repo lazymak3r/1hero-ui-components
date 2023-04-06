@@ -7,6 +7,7 @@ import { useForm } from 'react-hook-form';
 import { AppInput } from '../../../components/AppInput/AppInput';
 import { AppButton } from '../../../components/AppButton/AppButton';
 import { useWaitListStore } from '../../../store/waitlistStore';
+import { EMAIL_REGEX, VALIDATION_MESSAGES } from '../../../utils/constants';
 
 interface IFormType {
   email: string;
@@ -15,7 +16,11 @@ interface IFormType {
 export const Email = () => {
   const navigate = useNavigate();
   const { email, updateStore } = useWaitListStore();
-  const { register, handleSubmit, formState: { isValid } } = useForm<IFormType>({ defaultValues: { email } });
+  const {
+    register,
+    handleSubmit,
+    formState: { isValid, errors }
+  } = useForm<IFormType>({ mode: 'onChange', defaultValues: { email } });
 
   const goBack = () => navigate(-1);
 
@@ -34,9 +39,14 @@ export const Email = () => {
                 <AppInput
                   asterisk={true}
                   autoFocus={true}
+                  invalid={!!errors['email']}
+                  invalidMessage={errors['email']?.message}
                   placeholder={'Email'}
                   className={classes.phoneField}
-                  {...register('email', { required: true })}
+                  {...register('email', {
+                    required: { value: true, message: VALIDATION_MESSAGES.EMAIL_REQUIRED },
+                    pattern: { value: EMAIL_REGEX, message: VALIDATION_MESSAGES.EMAIL_FORMAT }
+                  })}
                 />
                 <AppButton type={'submit'} text={'Next'} disable={!isValid} />
                 <AppButton type={'button'} text={'Back'} variant={'secondary'} onClick={goBack} />

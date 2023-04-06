@@ -8,7 +8,7 @@ import { AppButton } from '../../../components/AppButton/AppButton';
 import { AppRadioOption } from '../../../components/AppRadioOption/AppRadioOption';
 import { wrapInsideSpan } from '../../../utils/fns';
 import { useWaitListStore } from '../../../store/waitlistStore';
-import { teamSize as teamSizeValues } from '../../../utils/constants';
+import { teamSize as teamSizeValues } from '../constants';
 
 interface IFormType {
   teamSize: string;

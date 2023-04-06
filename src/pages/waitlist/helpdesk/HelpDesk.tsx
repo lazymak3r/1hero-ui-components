@@ -8,7 +8,7 @@ import { AppButton } from '../../../components/AppButton/AppButton';
 import { AppRadioOption } from '../../../components/AppRadioOption/AppRadioOption';
 import { wrapInsideSpan } from '../../../utils/fns';
 import { useWaitListStore } from '../../../store/waitlistStore';
-import { helpdesk as helpdeskValues } from '../../../utils/constants';
+import { helpdesk as helpdeskValues } from '../constants';
 
 interface IFormType {
   helpdesk: string;
