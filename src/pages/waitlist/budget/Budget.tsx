@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import classes from './Budget.module.scss';
 import { fadeIn } from '../../../utils/routeAnimations';
 import { useForm } from 'react-hook-form';
-import { AppButton } from '../../../components/AppButton/AppButton';
 import { AppRadioOption } from '../../../components/AppRadioOption/AppRadioOption';
 import { useWaitListStore } from '../../../store/waitlistStore';
 import { budget as budgetValues } from '../constants';
@@ -16,9 +15,7 @@ interface IFormType {
 export const Budget = () => {
   const navigate = useNavigate();
   const { budget, updateStore } = useWaitListStore();
-  const { register, handleSubmit, formState: { isValid } } = useForm<IFormType>({ defaultValues: { budget } });
-
-  const goBack = () => navigate(-1);
+  const { register } = useForm<IFormType>({ defaultValues: { budget } });
 
   const onSubmit = ({ budget }: IFormType) => {
     updateStore('budget', budget);
@@ -27,7 +24,7 @@ export const Budget = () => {
 
   return (
     <motion.div {...fadeIn}>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form>
         <div className={classes.wrapper}>
           <h2
             className={classes.question}
@@ -40,25 +37,27 @@ export const Budget = () => {
                 <AppRadioOption
                   value={budgetValues['0 - $1K']}
                   label={budgetValues['0']}
+                  onClick={(event) => onSubmit({ budget: event.currentTarget.value })}
                   {...register('budget', { required: true })}
                 />
                 <AppRadioOption
                   value={budgetValues['$1K - $10K']}
                   label={budgetValues['1']}
+                  onClick={(event) => onSubmit({ budget: event.currentTarget.value })}
                   {...register('budget', { required: true })}
                 />
                 <AppRadioOption
                   value={budgetValues['$10K - $100K']}
                   label={budgetValues['2']}
+                  onClick={(event) => onSubmit({ budget: event.currentTarget.value })}
                   {...register('budget', { required: true })}
                 />
                 <AppRadioOption
                   value={budgetValues['$100K+']}
                   label={budgetValues['3']}
+                  onClick={(event) => onSubmit({ budget: event.currentTarget.value })}
                   {...register('budget', { required: true })}
                 />
-                <AppButton type={'submit'} text={'Next'} disable={!isValid} />
-                <AppButton type={'button'} text={'Back'} variant={'secondary'} onClick={goBack} />
               </div>
             </div>
           </div>

@@ -28,11 +28,11 @@ export const Sop = () => {
 
   const windowFocusHandler = async () => {
     try {
-      const clipBoardText = await navigator.clipboard.readText();
-      if (!watch('sop') && clipBoardText) {
-        const value = confirm('Allow Paste?');
-        value && setValue('sop', clipBoardText);
-      }
+      // const clipBoardText = await navigator.clipboard.readText();
+      // if (!watch('sop') && clipBoardText) {
+      // const value = confirm('Allow Paste?');
+      // value && setValue('sop', clipBoardText);
+      // }
     } catch (e) {
     }
   };

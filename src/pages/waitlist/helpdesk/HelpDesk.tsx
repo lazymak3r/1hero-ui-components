@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import classes from './HelpDesk.module.scss';
 import { fadeIn } from '../../../utils/routeAnimations';
 import { useForm } from 'react-hook-form';
-import { AppButton } from '../../../components/AppButton/AppButton';
 import { AppRadioOption } from '../../../components/AppRadioOption/AppRadioOption';
 import { useWaitListStore } from '../../../store/waitlistStore';
 import { helpdesk as helpdeskValues } from '../constants';
@@ -16,9 +15,7 @@ interface IFormType {
 export const HelpDesk = () => {
   const navigate = useNavigate();
   const { helpdesk, updateStore } = useWaitListStore();
-  const { register, handleSubmit, formState: { isValid } } = useForm<IFormType>({ defaultValues: { helpdesk } });
-
-  const goBack = () => navigate(-1);
+  const { register } = useForm<IFormType>({ defaultValues: { helpdesk } });
 
   const onSubmit = ({ helpdesk }: IFormType) => {
     updateStore('helpdesk', helpdesk);
@@ -27,7 +24,7 @@ export const HelpDesk = () => {
 
   return (
     <motion.div {...fadeIn}>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form>
         <div className={classes.wrapper}>
           <h2
             className={classes.question}
@@ -40,25 +37,27 @@ export const HelpDesk = () => {
                 <AppRadioOption
                   value={helpdeskValues['re:amaze']}
                   label={helpdeskValues['0']}
+                  onClick={(event) => onSubmit({ helpdesk: event.currentTarget.value })}
                   {...register('helpdesk', { required: true })}
                 />
                 <AppRadioOption
                   value={helpdeskValues['Zendesk']}
                   label={helpdeskValues['1']}
+                  onClick={(event) => onSubmit({ helpdesk: event.currentTarget.value })}
                   {...register('helpdesk', { required: true })}
                 />
                 <AppRadioOption
                   value={helpdeskValues['Gorgias']}
                   label={helpdeskValues['2']}
+                  onClick={(event) => onSubmit({ helpdesk: event.currentTarget.value })}
                   {...register('helpdesk', { required: true })}
                 />
                 <AppRadioOption
                   value={helpdeskValues['Other']}
                   label={helpdeskValues['3']}
+                  onClick={(event) => onSubmit({ helpdesk: event.currentTarget.value })}
                   {...register('helpdesk', { required: true })}
                 />
-                <AppButton type={'submit'} text={'Next'} disable={!isValid} />
-                <AppButton type={'button'} text={'Back'} variant={'secondary'} onClick={goBack} />
               </div>
             </div>
           </div>

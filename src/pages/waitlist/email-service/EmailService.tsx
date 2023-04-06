@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import classes from './EmailService.module.scss';
 import { fadeIn } from '../../../utils/routeAnimations';
 import { useForm } from 'react-hook-form';
-import { AppButton } from '../../../components/AppButton/AppButton';
 import { AppRadioOption } from '../../../components/AppRadioOption/AppRadioOption';
 import { useWaitListStore } from '../../../store/waitlistStore';
 import { emailService as emailServiceValues } from '../constants';
@@ -16,9 +15,7 @@ interface IFormType {
 export const EmailService = () => {
   const navigate = useNavigate();
   const { emailService, updateStore } = useWaitListStore();
-  const { register, handleSubmit, formState: { isValid } } = useForm<IFormType>({ defaultValues: { emailService } });
-
-  const goBack = () => navigate(-1);
+  const { register } = useForm<IFormType>({ defaultValues: { emailService } });
 
   const onSubmit = ({ emailService }: IFormType) => {
     updateStore('emailService', emailService);
@@ -27,7 +24,7 @@ export const EmailService = () => {
 
   return (
     <motion.div {...fadeIn}>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form>
         <div className={classes.wrapper}>
           <h2
             className={classes.question}
@@ -40,25 +37,27 @@ export const EmailService = () => {
                 <AppRadioOption
                   value={emailServiceValues['Gmail']}
                   label={emailServiceValues['0']}
+                  onClick={(event) => onSubmit({ emailService: event.currentTarget.value })}
                   {...register('emailService', { required: true })}
                 />
                 <AppRadioOption
                   value={emailServiceValues['Outlook']}
                   label={emailServiceValues['1']}
+                  onClick={(event) => onSubmit({ emailService: event.currentTarget.value })}
                   {...register('emailService', { required: true })}
                 />
                 <AppRadioOption
                   value={emailServiceValues['Zoho']}
                   label={emailServiceValues['2']}
+                  onClick={(event) => onSubmit({ emailService: event.currentTarget.value })}
                   {...register('emailService', { required: true })}
                 />
                 <AppRadioOption
                   value={emailServiceValues['Other']}
                   label={emailServiceValues['3']}
+                  onClick={(event) => onSubmit({ emailService: event.currentTarget.value })}
                   {...register('emailService', { required: true })}
                 />
-                <AppButton type={'submit'} text={'Next'} disable={!isValid} />
-                <AppButton type={'button'} text={'Back'} variant={'secondary'} onClick={goBack} />
               </div>
             </div>
           </div>

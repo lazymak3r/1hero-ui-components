@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import classes from './DailyEmailsCount.module.scss';
 import { fadeIn } from '../../../utils/routeAnimations';
 import { useForm } from 'react-hook-form';
-import { AppButton } from '../../../components/AppButton/AppButton';
 import { AppRadioOption } from '../../../components/AppRadioOption/AppRadioOption';
 import { useWaitListStore } from '../../../store/waitlistStore';
 import { dailyEmailsCount as dailyEmailsCountValues } from '../constants';
@@ -16,13 +15,7 @@ interface IFormType {
 export const DailyEmailsCount = () => {
   const navigate = useNavigate();
   const { dailyEmailsCount, updateStore } = useWaitListStore();
-  const {
-    register,
-    handleSubmit,
-    formState: { isValid }
-  } = useForm<IFormType>({ defaultValues: { dailyEmailsCount } });
-
-  const goBack = () => navigate(-1);
+  const { register } = useForm<IFormType>({ defaultValues: { dailyEmailsCount } });
 
   const onSubmit = ({ dailyEmailsCount }: IFormType) => {
     updateStore('dailyEmailsCount', dailyEmailsCount);
@@ -31,7 +24,7 @@ export const DailyEmailsCount = () => {
 
   return (
     <motion.div {...fadeIn}>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form>
         <div className={classes.wrapper}>
           <h2
             className={classes.question}
@@ -44,25 +37,27 @@ export const DailyEmailsCount = () => {
                 <AppRadioOption
                   value={dailyEmailsCountValues['Up to 100']}
                   label={dailyEmailsCountValues['0']}
+                  onClick={(event) => onSubmit({ dailyEmailsCount: event.currentTarget.value })}
                   {...register('dailyEmailsCount', { required: true })}
                 />
                 <AppRadioOption
                   value={dailyEmailsCountValues['Up to 1,000']}
                   label={dailyEmailsCountValues['1']}
+                  onClick={(event) => onSubmit({ dailyEmailsCount: event.currentTarget.value })}
                   {...register('dailyEmailsCount', { required: true })}
                 />
                 <AppRadioOption
                   value={dailyEmailsCountValues['Up to 10,000']}
                   label={dailyEmailsCountValues['2']}
+                  onClick={(event) => onSubmit({ dailyEmailsCount: event.currentTarget.value })}
                   {...register('dailyEmailsCount', { required: true })}
                 />
                 <AppRadioOption
                   value={dailyEmailsCountValues['More']}
                   label={dailyEmailsCountValues['3']}
+                  onClick={(event) => onSubmit({ dailyEmailsCount: event.currentTarget.value })}
                   {...register('dailyEmailsCount', { required: true })}
                 />
-                <AppButton type={'submit'} text={'Next'} disable={!isValid} />
-                <AppButton type={'button'} text={'Back'} variant={'secondary'} onClick={goBack} />
               </div>
             </div>
           </div>

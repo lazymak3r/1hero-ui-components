@@ -12,6 +12,7 @@ type InputProps = {
   readOnly?: boolean;
   className?: string;
   name?: string;
+  onClick?: (event: React.MouseEvent<HTMLInputElement>) => void;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
@@ -24,6 +25,7 @@ export const AppRadioOption = React.forwardRef(
       value,
       disable,
       invalid,
+      onClick,
       onChange,
       readOnly,
       className
@@ -56,6 +58,7 @@ export const AppRadioOption = React.forwardRef(
                 disabled={disable}
                 className={classes.input}
                 onChange={onChange}
+                onClick={onClick}
               />
               <span className={classes.radio}></span>
             </span>
