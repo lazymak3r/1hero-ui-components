@@ -19,7 +19,9 @@ export const DailyEmailsCount = () => {
 
   const onSubmit = ({ dailyEmailsCount }: IFormType) => {
     updateStore('dailyEmailsCount', dailyEmailsCount);
-    navigate('/email-service');
+    setTimeout(() => {
+      navigate('/email-service');
+    }, 200);
   };
 
   return (

@@ -19,7 +19,9 @@ export const Budget = () => {
 
   const onSubmit = ({ budget }: IFormType) => {
     updateStore('budget', budget);
-    navigate('/business-industry');
+    setTimeout(() => {
+      navigate('/business-industry');
+    }, 200);
   };
 
   return (

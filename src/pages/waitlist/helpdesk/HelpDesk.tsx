@@ -19,7 +19,9 @@ export const HelpDesk = () => {
 
   const onSubmit = ({ helpdesk }: IFormType) => {
     updateStore('helpdesk', helpdesk);
-    navigate('/sop');
+    setTimeout(() => {
+      navigate('/sop');
+    }, 200);
   };
 
   return (

@@ -19,7 +19,9 @@ export const EmailService = () => {
 
   const onSubmit = ({ emailService }: IFormType) => {
     updateStore('emailService', emailService);
-    navigate('/helpdesk');
+    setTimeout(() => {
+      navigate('/helpdesk');
+    }, 200);
   };
 
   return (

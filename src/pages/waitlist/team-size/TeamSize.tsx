@@ -19,7 +19,9 @@ export const TeamSize = () => {
 
   const onSubmit = ({ teamSize }: IFormType) => {
     updateStore('teamSize', teamSize);
-    navigate('/budget');
+    setTimeout(() => {
+      navigate('/budget');
+    }, 200);
   };
 
   return (

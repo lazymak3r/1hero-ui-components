@@ -19,7 +19,9 @@ export const BusinessIndustry = () => {
 
   const onSubmit = ({ businessIndustry }: IFormType) => {
     updateStore('businessIndustry', businessIndustry);
-    navigate('/daily-emails-count');
+    setTimeout(() => {
+      navigate('/daily-emails-count');
+    }, 200);
   };
 
   return (
