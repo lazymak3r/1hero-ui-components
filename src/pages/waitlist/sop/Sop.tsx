@@ -79,7 +79,7 @@ export const Sop = () => {
                     asterisk={true}
                     autoFocus={true}
                     placeholder={'SOP/FAQ'}
-                    className={classes.phoneField}
+                    inputClassName={classes.sopField}
                     {...register('sop', { required: true })}
                   />
                   <div className={classes.actions}>
@@ -93,6 +93,7 @@ export const Sop = () => {
           </div>
         </form>
       </motion.div>
+
       <AppModal
         width={640}
         isVisible={helpModalShown}

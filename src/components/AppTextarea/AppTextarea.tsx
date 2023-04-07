@@ -17,6 +17,7 @@ type InputProps = {
   readOnly?: boolean;
   asterisk?: boolean;
   className?: string;
+  inputClassName?: string;
   clearable?: boolean;
   autoFocus?: boolean
   placeholder?: string;
@@ -48,6 +49,7 @@ export const AppTextarea = React.forwardRef(
       clearable,
       autoFocus,
       placeholder,
+      inputClassName,
       invalidMessage,
       variant = 'white'
     }: InputProps,
@@ -57,7 +59,7 @@ export const AppTextarea = React.forwardRef(
 
     const wrapperClassName = classNames(classes.inputWrapper, className);
 
-    const inputClassName = classNames(
+    const labelClassName = classNames(
       classes.inputContainer,
       classes[variant],
       {
@@ -115,7 +117,7 @@ export const AppTextarea = React.forwardRef(
       <div className={wrapperClassName}>
         <label
           // tabIndex={0}
-          className={inputClassName}
+          className={labelClassName}
           data-testid={'input'}
         >
           {icon && <div className={classes.icon}>{icon}</div>}
@@ -128,7 +130,7 @@ export const AppTextarea = React.forwardRef(
               autoFocus={autoFocus}
               readOnly={readOnly}
               disabled={disable}
-              className={classes.input}
+              className={classNames(classes.input, inputClassName)}
               placeholder={placeholder}
               onChange={onChange}
               onFocus={onFocusHandler}

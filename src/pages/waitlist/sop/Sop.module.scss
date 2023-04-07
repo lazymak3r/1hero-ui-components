@@ -28,6 +28,10 @@
   flex-direction: column;
 }
 
+.sopField{
+  resize: vertical;
+}
+
 .actions {
   gap: 8px;
   display: flex;
