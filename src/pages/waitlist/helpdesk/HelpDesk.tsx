@@ -14,11 +14,12 @@ interface IFormType {
 
 export const HelpDesk = () => {
   const navigate = useNavigate();
-  const { helpdesk, updateStore } = useWaitListStore();
+  const { helpdesk, updateStore, addToWaitList } = useWaitListStore();
   const { register } = useForm<IFormType>({ defaultValues: { helpdesk } });
 
-  const onSubmit = ({ helpdesk }: IFormType) => {
+  const onSubmit = async ({ helpdesk }: IFormType) => {
     updateStore('helpdesk', helpdesk);
+    await addToWaitList();
     setTimeout(() => {
       navigate('/sop');
     }, 200);

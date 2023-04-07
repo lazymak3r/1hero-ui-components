@@ -17,8 +17,8 @@ export const AppRoutes = () => {
     <AnimatePresence>
       <Routes location={location} key={location.pathname}>
         <Route path='/' element={<WaitListLayout />}>
-          <Route path='/' element={<PhoneNumber />} />
-          <Route path='/email' element={<Email />} />
+          <Route path='/' element={<Email />} />
+          <Route path='/phone' element={<PhoneNumber />} />
           <Route path='/team-size' element={<TeamSize />} />
           <Route path='/budget' element={<Budget />} />
           <Route path='/business-industry' element={<BusinessIndustry />} />

@@ -14,11 +14,12 @@ interface IFormType {
 
 export const EmailService = () => {
   const navigate = useNavigate();
-  const { emailService, updateStore } = useWaitListStore();
+  const { emailService, updateStore, addToWaitList } = useWaitListStore();
   const { register } = useForm<IFormType>({ defaultValues: { emailService } });
 
-  const onSubmit = ({ emailService }: IFormType) => {
+  const onSubmit = async ({ emailService }: IFormType) => {
     updateStore('emailService', emailService);
+    await addToWaitList();
     setTimeout(() => {
       navigate('/helpdesk');
     }, 200);

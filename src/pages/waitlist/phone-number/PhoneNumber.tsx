@@ -15,16 +15,17 @@ interface IFormType {
 
 export const PhoneNumber = () => {
   const navigate = useNavigate();
-  const { phoneNumber, updateStore } = useWaitListStore();
+  const { phoneNumber, updateStore, addToWaitList } = useWaitListStore();
   const {
     register,
     handleSubmit,
     formState: { isValid, errors }
   } = useForm<IFormType>({ mode: 'onChange', defaultValues: { phoneNumber } });
 
-  const onSubmit = ({ phoneNumber }: IFormType) => {
+  const onSubmit = async ({ phoneNumber }: IFormType) => {
     updateStore('phoneNumber', phoneNumber);
-    navigate('/email');
+    await addToWaitList();
+    navigate('/team-size');
   };
 
   return (

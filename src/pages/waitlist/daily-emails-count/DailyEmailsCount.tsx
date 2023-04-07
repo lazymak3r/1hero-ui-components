@@ -14,11 +14,12 @@ interface IFormType {
 
 export const DailyEmailsCount = () => {
   const navigate = useNavigate();
-  const { dailyEmailsCount, updateStore } = useWaitListStore();
+  const { dailyEmailsCount, updateStore, addToWaitList } = useWaitListStore();
   const { register } = useForm<IFormType>({ defaultValues: { dailyEmailsCount } });
 
-  const onSubmit = ({ dailyEmailsCount }: IFormType) => {
+  const onSubmit = async ({ dailyEmailsCount }: IFormType) => {
     updateStore('dailyEmailsCount', dailyEmailsCount);
+    await addToWaitList();
     setTimeout(() => {
       navigate('/email-service');
     }, 200);

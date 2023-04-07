@@ -14,11 +14,12 @@ interface IFormType {
 
 export const BusinessIndustry = () => {
   const navigate = useNavigate();
-  const { businessIndustry, updateStore } = useWaitListStore();
+  const { businessIndustry, updateStore, addToWaitList } = useWaitListStore();
   const { register } = useForm<IFormType>({ defaultValues: { businessIndustry } });
 
-  const onSubmit = ({ businessIndustry }: IFormType) => {
+  const onSubmit = async ({ businessIndustry }: IFormType) => {
     updateStore('businessIndustry', businessIndustry);
+    await addToWaitList();
     setTimeout(() => {
       navigate('/daily-emails-count');
     }, 200);

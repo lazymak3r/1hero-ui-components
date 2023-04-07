@@ -14,11 +14,12 @@ interface IFormType {
 
 export const TeamSize = () => {
   const navigate = useNavigate();
-  const { teamSize, updateStore } = useWaitListStore();
+  const { teamSize, updateStore, addToWaitList } = useWaitListStore();
   const { register } = useForm<IFormType>({ defaultValues: { teamSize } });
 
-  const onSubmit = ({ teamSize }: IFormType) => {
+  const onSubmit = async ({ teamSize }: IFormType) => {
     updateStore('teamSize', teamSize);
+    await addToWaitList();
     setTimeout(() => {
       navigate('/budget');
     }, 200);

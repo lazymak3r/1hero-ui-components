@@ -14,11 +14,12 @@ interface IFormType {
 
 export const Budget = () => {
   const navigate = useNavigate();
-  const { budget, updateStore } = useWaitListStore();
+  const { budget, updateStore, addToWaitList } = useWaitListStore();
   const { register } = useForm<IFormType>({ defaultValues: { budget } });
 
-  const onSubmit = ({ budget }: IFormType) => {
+  const onSubmit = async ({ budget }: IFormType) => {
     updateStore('budget', budget);
+    await addToWaitList();
     setTimeout(() => {
       navigate('/business-industry');
     }, 200);

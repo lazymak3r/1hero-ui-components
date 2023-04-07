@@ -15,7 +15,7 @@ interface IFormType {
 
 export const Email = () => {
   const navigate = useNavigate();
-  const { email, updateStore } = useWaitListStore();
+  const { email, updateStore, resetStore, addToWaitList } = useWaitListStore();
   const {
     register,
     handleSubmit,
@@ -24,9 +24,11 @@ export const Email = () => {
 
   const goBack = () => navigate(-1);
 
-  const onSubmit = ({ email }: IFormType) => {
+  const onSubmit = async ({ email }: IFormType) => {
     updateStore('email', email);
-    navigate('/team-size');
+    resetStore(['phoneNumber', 'teamSize', 'budget', 'businessIndustry', 'dailyEmailsCount', 'emailService', 'helpdesk', 'sop']);
+    await addToWaitList();
+    navigate('/phone');
   };
 
   return (

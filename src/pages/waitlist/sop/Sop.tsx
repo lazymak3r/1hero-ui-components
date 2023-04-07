@@ -64,7 +64,9 @@ export const Sop = () => {
             <h2
               className={classes.question}
             >
-              Include your SOP/FAQ{' '}
+              Most importantly we expect to learn about your business procedures your customer support agents should
+              follow when customers address their most often requests (e.g. return and refund procedures,
+              troubleshooting guide etc.){' '}
               <span
                 className={classes.helpIcon}
                 onClick={() => setHelpModalShown(true)}>
@@ -83,9 +85,7 @@ export const Sop = () => {
                     {...register('sop', { required: true })}
                   />
                   <div className={classes.actions}>
-                    <AppButton type={'button'} text={'Back'} variant={'secondary'} onClick={goBack}
-                               className={classes.action} />
-                    <AppButton type={'submit'} text={'Next'} disable={!isValid} className={classes.action} />
+                    <AppButton type={'submit'} text={'Submit'} disable={!isValid} className={classes.action} />
                   </div>
                 </div>
               </div>
@@ -99,6 +99,8 @@ export const Sop = () => {
         isVisible={helpModalShown}
         onClose={() => setHelpModalShown(false)}
       >
+        <h2>Checkout The Example Below</h2>
+        <br/>
         Customer Inquiry: Purchasing Skull Shaver Products
         Inform customers that products can be purchased online with worldwide shipping.
         Provide information about shipping times (5-7 business days).
