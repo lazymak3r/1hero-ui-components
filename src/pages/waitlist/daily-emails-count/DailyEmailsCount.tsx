@@ -22,7 +22,7 @@ export const DailyEmailsCount = () => {
     updateStore('dailyEmailsCount', dailyEmailsCount);
     await addToWaitList();
     setTimeout(() => {
-      navigate(ROUTES.WAITLIST_EMAIL_SERVICES);
+      navigate(ROUTES.SIGNUP_EMAIL_SERVICES);
     }, 200);
   };
 

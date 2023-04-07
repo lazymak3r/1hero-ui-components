@@ -22,7 +22,7 @@ export const EmailService = () => {
     updateStore('emailService', emailService);
     await addToWaitList();
     setTimeout(() => {
-      navigate(ROUTES.WAITLIST_HELPDESK);
+      navigate(ROUTES.SIGNUP_HELPDESK);
     }, 200);
   };
 

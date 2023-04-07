@@ -1,13 +1,26 @@
 import Lottie from 'lottie-react';
 import { motion } from 'framer-motion';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import logo from '../../assets/images/logo.svg';
 import classes from './JoinedWaitlist.module.scss';
 import confettiAnimation from './confetti.json';
 import { fadeIn } from '../../utils/routeAnimations';
+import { ROUTES } from '../../components/AppRoutes/constants';
 import { AppButton } from '../../components/AppButton/AppButton';
+import { useWaitListStore } from '../../store/waitlistStore';
 
 export const JoinedWaitList = () => {
+  const navigate = useNavigate();
+  const { email } = useWaitListStore();
+
+  useEffect(() => {
+    if (!email) {
+      navigate(ROUTES.SIGNUP);
+    }
+  }, []);
+
   return (
     <motion.div {...fadeIn}>
       <div className={classes.animationContainer}>

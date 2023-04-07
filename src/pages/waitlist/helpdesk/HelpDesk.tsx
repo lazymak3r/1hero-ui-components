@@ -22,7 +22,7 @@ export const HelpDesk = () => {
     updateStore('helpdesk', helpdesk);
     await addToWaitList();
     setTimeout(() => {
-      navigate(ROUTES.WAITLIST_SOP);
+      navigate(ROUTES.SIGNUP_SOP);
     }, 200);
   };
 

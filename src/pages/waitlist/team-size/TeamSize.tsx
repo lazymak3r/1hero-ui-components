@@ -22,7 +22,7 @@ export const TeamSize = () => {
     updateStore('teamSize', teamSize);
     await addToWaitList();
     setTimeout(() => {
-      navigate(ROUTES.WAITLIST_BUDGET);
+      navigate(ROUTES.SIGNUP_BUDGET);
     }, 200);
   };
 

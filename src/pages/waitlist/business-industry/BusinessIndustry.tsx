@@ -22,7 +22,7 @@ export const BusinessIndustry = () => {
     updateStore('businessIndustry', businessIndustry);
     await addToWaitList();
     setTimeout(() => {
-      navigate(ROUTES.WAITLIST_DAILY_EMAILS_COUNT);
+      navigate(ROUTES.SIGNUP_DAILY_EMAILS_COUNT);
     }, 200);
   };
 

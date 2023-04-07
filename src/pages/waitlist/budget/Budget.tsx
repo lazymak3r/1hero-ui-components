@@ -22,7 +22,7 @@ export const Budget = () => {
     updateStore('budget', budget);
     await addToWaitList();
     setTimeout(() => {
-      navigate(ROUTES.WAITLIST_BUSINESS_INDUSTRY);
+      navigate(ROUTES.SIGNUP_BUSINESS_INDUSTRY);
     }, 200);
   };
 

@@ -7,10 +7,10 @@ import { ROUTES } from '../../../components/AppRoutes/constants';
 import { AppProgress } from '../../../components/AppProgress/AppProgress';
 import { useWaitListStore } from '../../../store/waitlistStore';
 
-const firstStep = [ROUTES.WAITLIST_EMAIL, ROUTES.WAITLIST_PHONE];
-const secondStep = [ROUTES.WAITLIST_TEAM_SIZE, ROUTES.WAITLIST_BUDGET, ROUTES.WAITLIST_BUSINESS_INDUSTRY];
-const thirdStep = [ROUTES.WAITLIST_DAILY_EMAILS_COUNT, ROUTES.WAITLIST_EMAIL_SERVICES, ROUTES.WAITLIST_HELPDESK];
-const forthStep = [ROUTES.WAITLIST_SOP];
+const firstStep = [ROUTES.SIGNUP_EMAIL, ROUTES.SIGNUP_PHONE];
+const secondStep = [ROUTES.SIGNUP_TEAM_SIZE, ROUTES.SIGNUP_BUDGET, ROUTES.SIGNUP_BUSINESS_INDUSTRY];
+const thirdStep = [ROUTES.SIGNUP_DAILY_EMAILS_COUNT, ROUTES.SIGNUP_EMAIL_SERVICES, ROUTES.SIGNUP_HELPDESK];
+const forthStep = [ROUTES.SIGNUP_SOP];
 const allSteps = [...firstStep, ...secondStep, ...thirdStep, ...forthStep];
 
 export const WaitListLayout = () => {
@@ -40,7 +40,7 @@ export const WaitListLayout = () => {
 
   useEffect(() => {
     if (!email) {
-      navigate('/');
+      navigate(ROUTES.SIGNUP);
     }
   }, []);
 

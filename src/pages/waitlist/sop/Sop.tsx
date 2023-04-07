@@ -45,7 +45,7 @@ export const Sop = () => {
     updateStore('sop', sop);
     const response = await addToWaitList();
     if (response?.data?.subscriber) {
-      navigate(ROUTES.JOINED_WAITLIST)
+      navigate(ROUTES.JOINED_WAITLIST);
     }
   };
 
@@ -101,7 +101,7 @@ export const Sop = () => {
         onClose={() => setHelpModalShown(false)}
       >
         <h2>Checkout The Example Below</h2>
-        <br/>
+        <br />
         Customer Inquiry: Purchasing Skull Shaver Products
         Inform customers that products can be purchased online with worldwide shipping.
         Provide information about shipping times (5-7 business days).

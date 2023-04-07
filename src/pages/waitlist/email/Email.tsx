@@ -29,7 +29,7 @@ export const Email = () => {
     updateStore('email', email);
     resetStore(['phoneNumber', 'teamSize', 'budget', 'businessIndustry', 'dailyEmailsCount', 'emailService', 'helpdesk', 'sop']);
     await addToWaitList();
-    navigate(ROUTES.WAITLIST_PHONE);
+    navigate(ROUTES.SIGNUP_PHONE);
   };
 
   return (

@@ -26,7 +26,7 @@ export const PhoneNumber = () => {
   const onSubmit = async ({ phoneNumber }: IFormType) => {
     updateStore('phoneNumber', phoneNumber);
     await addToWaitList();
-    navigate(ROUTES.WAITLIST_TEAM_SIZE);
+    navigate(ROUTES.SIGNUP_TEAM_SIZE);
   };
 
   return (
