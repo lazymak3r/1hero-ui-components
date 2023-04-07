@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 import classes from './Budget.module.scss';
 import { fadeIn } from '../../../utils/routeAnimations';
+import { ROUTES } from '../../../components/AppRoutes/constants';
 import { useForm } from 'react-hook-form';
 import { AppRadioOption } from '../../../components/AppRadioOption/AppRadioOption';
 import { useWaitListStore } from '../../../store/waitlistStore';
@@ -21,7 +22,7 @@ export const Budget = () => {
     updateStore('budget', budget);
     await addToWaitList();
     setTimeout(() => {
-      navigate('/business-industry');
+      navigate(ROUTES.WAITLIST_BUSINESS_INDUSTRY);
     }, 200);
   };
 

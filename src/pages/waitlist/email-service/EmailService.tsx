@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 import classes from './EmailService.module.scss';
 import { fadeIn } from '../../../utils/routeAnimations';
+import { ROUTES } from '../../../components/AppRoutes/constants';
 import { useForm } from 'react-hook-form';
 import { AppRadioOption } from '../../../components/AppRadioOption/AppRadioOption';
 import { useWaitListStore } from '../../../store/waitlistStore';
@@ -21,7 +22,7 @@ export const EmailService = () => {
     updateStore('emailService', emailService);
     await addToWaitList();
     setTimeout(() => {
-      navigate('/helpdesk');
+      navigate(ROUTES.WAITLIST_HELPDESK);
     }, 200);
   };
 

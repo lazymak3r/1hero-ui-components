@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 import classes from './HelpDesk.module.scss';
 import { fadeIn } from '../../../utils/routeAnimations';
+import { ROUTES } from '../../../components/AppRoutes/constants';
 import { useForm } from 'react-hook-form';
 import { AppRadioOption } from '../../../components/AppRadioOption/AppRadioOption';
 import { useWaitListStore } from '../../../store/waitlistStore';
@@ -21,7 +22,7 @@ export const HelpDesk = () => {
     updateStore('helpdesk', helpdesk);
     await addToWaitList();
     setTimeout(() => {
-      navigate('/sop');
+      navigate(ROUTES.WAITLIST_SOP);
     }, 200);
   };
 

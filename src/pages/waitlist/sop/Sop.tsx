@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 
 import classes from './Sop.module.scss';
 import { fadeIn } from '../../../utils/routeAnimations';
+import { ROUTES } from '../../../components/AppRoutes/constants';
 import { useForm } from 'react-hook-form';
 import { AppModal } from '../../../components/AppModal/AppModal';
 import { AppButton } from '../../../components/AppButton/AppButton';
@@ -44,7 +45,7 @@ export const Sop = () => {
     updateStore('sop', sop);
     const response = await addToWaitList();
     if (response?.data?.subscriber) {
-      // Todo Redirect to Success page
+      navigate(ROUTES.JOINED_WAITLIST)
     }
   };
 

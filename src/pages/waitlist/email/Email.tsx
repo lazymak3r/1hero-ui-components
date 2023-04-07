@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 import classes from './Email.module.scss';
 import { fadeIn } from '../../../utils/routeAnimations';
+import { ROUTES } from '../../../components/AppRoutes/constants';
 import { useForm } from 'react-hook-form';
 import { AppInput } from '../../../components/AppInput/AppInput';
 import { AppButton } from '../../../components/AppButton/AppButton';
@@ -28,7 +29,7 @@ export const Email = () => {
     updateStore('email', email);
     resetStore(['phoneNumber', 'teamSize', 'budget', 'businessIndustry', 'dailyEmailsCount', 'emailService', 'helpdesk', 'sop']);
     await addToWaitList();
-    navigate('/phone');
+    navigate(ROUTES.WAITLIST_PHONE);
   };
 
   return (

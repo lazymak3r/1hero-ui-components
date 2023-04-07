@@ -1,5 +1,5 @@
 import classes from './App.module.scss';
-import { AppRoutes } from './AppRoutes';
+import { AppRoutes } from './components/AppRoutes/AppRoutes';
 
 export const App = () => {
   return (

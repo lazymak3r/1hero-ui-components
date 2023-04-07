@@ -3,13 +3,14 @@ import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 
 import logo from '../../../assets/images/logo.svg';
 import classes from './WaitListLayout.module.scss';
+import { ROUTES } from '../../../components/AppRoutes/constants';
 import { AppProgress } from '../../../components/AppProgress/AppProgress';
 import { useWaitListStore } from '../../../store/waitlistStore';
 
-const firstStep = ['/', '/phone'];
-const secondStep = ['/team-size', '/budget', '/business-industry'];
-const thirdStep = ['/daily-emails-count', '/email-service', '/helpdesk'];
-const forthStep = ['/sop'];
+const firstStep = [ROUTES.WAITLIST_EMAIL, ROUTES.WAITLIST_PHONE];
+const secondStep = [ROUTES.WAITLIST_TEAM_SIZE, ROUTES.WAITLIST_BUDGET, ROUTES.WAITLIST_BUSINESS_INDUSTRY];
+const thirdStep = [ROUTES.WAITLIST_DAILY_EMAILS_COUNT, ROUTES.WAITLIST_EMAIL_SERVICES, ROUTES.WAITLIST_HELPDESK];
+const forthStep = [ROUTES.WAITLIST_SOP];
 const allSteps = [...firstStep, ...secondStep, ...thirdStep, ...forthStep];
 
 export const WaitListLayout = () => {

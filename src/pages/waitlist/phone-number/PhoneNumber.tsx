@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 import classes from './PhoneNumber.module.scss';
 import { fadeIn } from '../../../utils/routeAnimations';
+import { ROUTES } from '../../../components/AppRoutes/constants';
 import { useForm } from 'react-hook-form';
 import { AppInput } from '../../../components/AppInput/AppInput';
 import { AppButton } from '../../../components/AppButton/AppButton';
@@ -25,7 +26,7 @@ export const PhoneNumber = () => {
   const onSubmit = async ({ phoneNumber }: IFormType) => {
     updateStore('phoneNumber', phoneNumber);
     await addToWaitList();
-    navigate('/team-size');
+    navigate(ROUTES.WAITLIST_TEAM_SIZE);
   };
 
   return (
