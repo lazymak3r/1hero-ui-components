@@ -30,11 +30,8 @@ export const AppRoutes = () => {
           <Route path={ROUTES.SIGNUP_HELPDESK} element={<HelpDesk />} />
           <Route path={ROUTES.SIGNUP_SOP} element={<Sop />} />
         </Route>
-
         <Route path={ROUTES.JOINED_WAITLIST} element={<JoinedWaitList />} />
-
         <Route path={'*'} element={<NotFound />} />
-
       </Routes>
     </AnimatePresence>
   );
