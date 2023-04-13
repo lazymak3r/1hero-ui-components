@@ -48,7 +48,7 @@ export const WaitListLayout = () => {
     <div className={classes.wrapper}>
       <div className={classes.container}>
         <div className={classes.logo}>
-          <img src={logo} alt={'1hero'} width={209} height={98} />
+          <img src={logo} alt={'1hero'} width={150}/>
         </div>
         <h1 className={classes.title}>{title}</h1>
         <AppProgress value={progress} wrapperClassName={classes.progress} />

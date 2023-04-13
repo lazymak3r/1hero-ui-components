@@ -43,7 +43,6 @@
         text-overflow: ellipsis;
         color: var(--systemGrayDark6);
         background-color: transparent;
-        font-family: "Inter", sans-serif;
 
         &::placeholder {
           opacity: 0;
@@ -226,6 +225,5 @@
     color: var(--systemRed);
     margin-top: 4px;
     margin-left: 16px;
-    font-family: 'Inter', sans-serif;
   }
 }
