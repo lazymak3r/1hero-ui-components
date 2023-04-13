@@ -44,8 +44,8 @@ export const JoinedWaitList = () => {
             Remember, we'll reach out to you via the email and phone number you provided earlier in the form.
             Stay tuned – you'll hear from us within the next few days!
           </p>
-          <AppButton text={'Back to home'} variant={'primary'} onClick={() => {
-          }} />
+          <AppButton text={'Back to home'} variant={'primary'}
+                     onClick={() => location.href = 'https://www.1hero.com'} />
         </div>
       </div>
     </motion.div>
