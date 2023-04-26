@@ -1,0 +1,57 @@
+:root {
+    --systemWhite: rgb(255, 255, 255);
+    --systemBlack: rgb(0, 0, 0);
+    --systemGreen: rgb(52, 199, 89);
+    --systemGreenDark: rgb(48, 209, 88);
+    --systemBlue: rgb(0, 122, 255);
+    --systemBlueDark: rgb(10, 132, 255);
+    --systemRed: rgb(255, 59, 48);
+    --systemRedDark: rgb(255, 69, 58);
+
+    --systemGray1: rgb(142, 142, 147);
+    --systemGrayDark1: rgb(142, 142, 147);
+    --systemGray2: rgb(174, 174, 178);
+    --systemGrayDark2: rgb(99, 99, 102);
+    --systemGray3: rgb(199, 199, 204);
+    --systemGrayDark3: rgb(72, 72, 74);
+    --systemGray4: rgb(209, 209, 214);
+    --systemGrayDark4: rgb(58, 58, 60);
+    --systemGray5: rgb(229, 229, 234);
+    --systemGrayDark5: rgb(44, 44, 46);
+    --systemGray6: rgb(242, 242, 247);
+    --systemGrayDark6: rgb(28, 28, 30);
+
+    --app-bg: #fcfbf9;
+}
+
+html {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+body {
+    background-color: var(--app-bg);
+}
+
+*,
+body {
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+@keyframes scaleFadeIn {
+    0% {
+        opacity: 0;
+        filter: blur(3px);
+        transform: scale(1.5) translateX(20px);
+    }
+
+    100% {
+        opacity: 1;
+        filter: blur(0);
+        transform: scale(1) translateX(0);
+    }
+}
